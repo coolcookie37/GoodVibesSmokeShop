@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Premium Disposable Vape — Good Vibes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo"><h1>Good Vibes</h1></div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../products.html">Products</a>
+      <a href="../cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Premium Disposable Vape</h2>
+    <div class="product-detail">
+      <div class="product-detail-img">
+        ⚡ 1500-Puff Disposable
+      </div>
+      <div class="product-detail-info">
+        <p><strong>Price:</strong> $29.99</p>
+        <p>Smooth, reliable, and ready to go. Each disposable delivers up to 1500 puffs of lab-tested, clean vapor with zero maintenance. Comes in curated blends like Tropical Chill and Berry Zen. No charging. No fuss. Just pure, consistent vibes from first puff to last.</p>
+        <p>✅ 1500 puffs average<br>✅ Lab-tested oil<br>✅ No buttons, no setup</p>
+        <button class="btn" onclick="addToCart('premium-disposable', 29.99)">Add to Cart</button>
+        <a href="../products.html" class="btn btn-outline" style="margin-left: 0.8rem;">Back to Shop</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Good Vibes Smoke Shop — 3164 E Tremont Ave, Bronx, NY 10461<br>
+    📞 <a href="tel:+17188043616">+1 (718) 804-3616</a>
+  </footer>
+
+  <script>
+    function addToCart(id, price) {
+      const name = document.querySelector('h2').textContent;
+      let cart = JSON.parse(localStorage.getItem('cart')) || {};
+      cart[id] = (cart[id] || 0) + 1;
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+      updateCartCount();
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      const countEl = document.getElementById('cart-count');
+      if (countEl) countEl.textContent = totalItems;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+  </script>
+
+</body>
+</html>
