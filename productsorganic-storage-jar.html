@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Organic Storage Jar — Good Vibes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo"><h1>Good Vibes</h1></div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../products.html">Products</a>
+      <a href="../cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Organic Glass Storage Jar</h2>
+    <div class="product-detail">
+      <div class="product-detail-img">
+        🏺 16oz Amber Glass Jar
+      </div>
+      <div class="product-detail-info">
+        <p><strong>Price:</strong> $24.99</p>
+        <p>Preserve freshness with this UV-protected, airtight jar. Perfect for herbs, tobacco, or collectibles.</p>
+        <p>✅ Hand-wash recommended<br>✅ Silicone seal included</p>
+        <button class="btn" onclick="addToCart('organic-jar', 24.99)">Add to Cart</button>
+        <a href="../products.html" class="btn btn-outline" style="margin-left: 0.8rem;">Back to Shop</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Good Vibes Smoke Shop — 3164 E Tremont Ave, Bronx, NY 10461<br>
+    📞 <a href="tel:+17188043616">+1 (718) 804-3616</a>
+  </footer>
+
+  <script>
+    // Cart utility
+    function addToCart(id, price) {
+      const name = document.querySelector('h2').textContent;
+      let cart = JSON.parse(localStorage.getItem('cart')) || {};
+      cart[id] = (cart[id] || 0) + 1;
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Show confirmation
+      alert(`${name} added to cart!`);
+      updateCartCount();
+    }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      const countEl = document.getElementById('cart-count');
+      if (countEl) countEl.textContent = totalItems;
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+  </script>
+
+</body>
+</html>
