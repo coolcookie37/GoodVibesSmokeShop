@@ -3,222 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Good Vibes Smoke Shop | Bronx, NY</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2e7d32;     /* Deep green */
-      --accent: #e65100;      /* Warm orange */
-      --light: #f9f6f0;
-      --dark: #1b1b1b;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--primary), #4caf50);
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-
-    .logo {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
-    }
-
-    .tagline {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h2 {
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
-      text-align: center;
-    }
-
-    .welcome {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
-    }
-
-    .welcome p {
-      font-size: 1.05rem;
-      margin-bottom: 1rem;
-    }
-
-    .highlight {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .review-card {
-      background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-      position: relative;
-    }
-
-    .review-card::before {
-      content: """;
-      font-size: 4rem;
-      position: absolute;
-      top: -20px;
-      left: 10px;
-      color: var(--primary);
-      opacity: 0.15;
-      font-family: Georgia, serif;
-    }
-
-    .stars {
-      color: #ff9800;
-      margin-bottom: 0.75rem;
-      font-size: 1.2rem;
-    }
-
-    .products {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .product-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .product-tag {
-      background: var(--primary);
-      color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-
-    footer {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .notice {
-      background: #fff8e1;
-      padding: 1rem;
-      border-left: 4px solid var(--accent);
-      margin: 1.5rem 0;
-      font-weight: 600;
-      color: #5d4037;
-    }
-
-    @media (max-width: 600px) {
-      .logo { font-size: 2rem; }
-      h2 { font-size: 1.6rem; }
-    }
-  </style>
+  <title>Good Vibes Smoke Shop — Bronx, NY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header>
-    <div class="logo">Good Vibes Smoke Shop</div>
-    <p class="tagline">Your trusted neighborhood smoke shop in the Bronx — where you’re treated like family.</p>
+    <div class="logo"><h1>Good Vibes</h1></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
   </header>
 
-  <div class="container">
-    <section class="welcome">
-      <h2>Welcome, New Friends! 🌿</h2>
-      <p>Hey there! If it’s your first time walking through our doors — <span class="highlight">welcome!</span> We’re so glad you found us.</p>
-      <p>At Good Vibes, we believe great service starts with respect, knowledge, and real human connection. Whether you’re looking for premium disposables, stylish storage jars, or just honest advice — <strong>Moses and the team</strong> have got you covered.</p>
-      <p class="notice">📍 <strong>Don’t forget your ID!</strong> We’re 21+ only — and we take that seriously to keep our community safe and legal.</p>
-    </section>
-
-    <section>
-      <h2>What Our Customers Say 💬</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“This place is the best! Moses’ service is 💯. Everytime I come, the staff is so helpful. If something isn’t in stock, they tell you exactly when they can get it.”</p>
-          <p><em>— Regular Customer</em></p>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Moses and his team always make me feel like family. A must-try: the disposables! 🔥💨”</p>
-          <p><em>— Rain Cop, Local Guide</em></p>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Go see Moses — he deserves 10 stars, not 5! Great quality, and you’ll thank me later.”</p>
-          <p><em>— Prii</em></p>
-        </div>
-        <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <p>“Clean store, tons of products, and amazing customer service. The manager is great!”</p>
-          <p><em>— Bryanna Sanabria</em></p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Popular Picks 🛍️</h2>
-      <div class="products">
-        <p>We carry top-quality products you can trust:</p>
-        <div class="product-list">
-          <span class="product-tag">Premium Disposables</span>
-          <span class="product-tag">Glass & Storage Jars</span>
-          <span class="product-tag">Organic Options</span>
-          <span class="product-tag">Vapes & Accessories</span>
-          <span class="product-tag">Snacks & More</span>
-        </div>
-      </div>
-    </section>
+  <div class="hero">
+    <h2>Welcome to Good Vibes Smoke Shop</h2>
+    <p>Bronx’s most trusted spot for quality smoke gear & personal service</p>
+    <a href="products.html" class="btn" style="margin-top: 1rem;">Browse Products</a>
   </div>
 
+  <section>
+    <h2>Why Customers Love Us</h2>
+    <div style="background:white;padding:1.5rem;border-radius:12px;margin-top:1rem;">
+      <p>“Moses and his team make me feel like family. The service is 💯 — they never push, just guide.”</p>
+    </div>
+  </section>
+
   <footer>
-    <p>Good Vibes Smoke Shop • The Bronx, NY</p>
-    <p>Open Daily | 21+ with Valid ID Required</p>
-    <p>Follow us on socials for updates! @goodvibessmokeshop</p>
-    <p style="margin-top: 10px; font-size: 0.9rem;">© 2026 Good Vibes Smoke Shop. All rights reserved.</p>
+    © 2026 Good Vibes Smoke Shop — 3164 E Tremont Ave, Bronx, NY 10461<br>
+    📞 <a href="tel:+17188043616">+1 (718) 804-3616</a>
   </footer>
+
+  <script>
+    // Update cart count on load
+    document.addEventListener('DOMContentLoaded', () => {
+      const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    });
+  </script>
 
 </body>
 </html>

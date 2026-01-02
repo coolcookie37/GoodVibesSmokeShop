@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart — Good Vibes Smoke Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo"><h1>Good Vibes</h1></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section class="cart-items">
+    <h2>Your Cart</h2>
+    <div id="cart-content">
+      <!-- Cart items will be injected here -->
+    </div>
+    <div class="total" id="cart-total">Total: $0.00</div>
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <a href="products.html" class="btn btn-outline">Continue Shopping</a>
+      <button class="btn" style="margin-left: 1rem;" onclick="alert('Real checkout coming soon! For now, call Moses to order 📞')">Checkout</button>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Good Vibes Smoke Shop — 3164 E Tremont Ave, Bronx, NY 10461<br>
+    📞 <a href="tel:+17188043616">+1 (718) 804-3616</a>
+  </footer>
+
+  <script>
+    const products = {
+      'organic-jar': { name: 'Organic Storage Jar', price: 24.99 },
+      'premium-disposable': { name: 'Premium Disposable Vape', price: 29.99 },
+      'ceramic-hookah-bowl': { name: 'Ceramic Hookah Bowl', price: 34.99 },
+      'charging-pen-kit': { name: 'USB-C Charging Pen Kit', price: 39.99 }
+    };
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      const content = document.getElementById('cart-content');
+      const totalEl = document.getElementById('cart-total');
+
+      if (Object.keys(cart).length === 0) {
+        content.innerHTML = '<p>Your cart is empty. <a href="products.html">Browse products</a>!</p>';
+        totalEl.textContent = 'Total: $0.00';
+        return;
+      }
+
+      let html = '';
+      let total = 0;
+
+      for (const id in cart) {
+        const qty = cart[id];
+        const product = products[id];
+        if (!product) continue;
+        const itemTotal = product.price * qty;
+        total += itemTotal;
+
+        html += `
+          <div class="cart-item">
+            <div>
+              <strong>${product.name}</strong><br>
+              $${product.price.toFixed(2)} each
+            </div>
+            <div class="quantity-controls">
+              <button class="quantity-btn" onclick="updateQty('${id}', -1)">-</button>
+              <span>${qty}</span>
+              <button class="quantity-btn" onclick="updateQty('${id}', 1)">+</button>
+            </div>
+            <div>$${itemTotal.toFixed(2)}</div>
+          </div>
+        `;
+      }
+
+      content.innerHTML = html;
+      totalEl.textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    function updateQty(id, change) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || {};
+      cart[id] = (cart[id] || 0) + change;
+      if (cart[id] <= 0) delete cart[id];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+      updateCartCount();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+      updateCartCount();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products — Good Vibes Smoke Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo"><h1>Good Vibes</h1></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Our Top Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">🌿 Organic Storage Jar</div>
+        <div class="product-info">
+          <h3>Organic Glass Jar</h3>
+          <p>Hand-blown, airtight, UV-protected.</p>
+          <div class="price">$24.99</div>
+          <a href="products/organic-storage-jar.html" class="btn btn-outline" style="margin-top: 0.8rem;">View</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">⚡ Premium Disposable</div>
+        <div class="product-info">
+          <h3>Premium Disposable Vape</h3>
+          <p>1500 puffs, smooth blend, lab-tested.</p>
+          <div class="price">$29.99</div>
+          <a href="products/premium-disposable.html" class="btn btn-outline" style="margin-top: 0.8rem;">View</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🪣 Ceramic Hookah Bowl</div>
+        <div class="product-info">
+          <h3>Phunnel Hookah Bowl</h3>
+          <p>Heat-resistant ceramic, even flavor.</p>
+          <div class="price">$34.99</div>
+          <a href="products/ceramic-hookah-bowl.html" class="btn btn-outline" style="margin-top: 0.8rem;">View</a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🔋 Charging Pen Kit</div>
+        <div class="product-info">
+          <h3>USB-C Charging Pen</h3>
+          <p>Variable voltage, sleek design.</p>
+          <div class="price">$39.99</div>
+          <a href="products/charging-pen-kit.html" class="btn btn-outline" style="margin-top: 0.8rem;">View</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Good Vibes Smoke Shop — 3164 E Tremont Ave, Bronx, NY 10461<br>
+    📞 <a href="tel:+17188043616">+1 (718) 804-3616</a>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      document.getElementById('cart-count').textContent = totalItems;
+    });
+  </script>
+
+</body>
+</html>
